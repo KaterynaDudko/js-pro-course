@@ -1,0 +1,5 @@
+snippet header "Header" A
+``rv = '/**' + '-'.repeat(t[0].length + 22) + '**//'``
+``rv = '/**' + '-'.repeat(10)`` $1 ``rv = '-'.repeat(10) + '**/'``
+``rv = '/**' + '-'.repeat(t[0].length + 20) + '**//'``
+endsnippet
