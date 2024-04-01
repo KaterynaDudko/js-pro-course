@@ -24,7 +24,6 @@ function fetchDataChained() {
     .catch((error) => console.log(error));
 }
 
-// Another method to avoid callback hell using async/await
 async function fetchData() {
   try {
     const response = await fetch(`${BASE_URL}/1`);
@@ -40,9 +39,7 @@ async function fetchData() {
   }
 }
 
-/* --------------------------------------------------------------------- */
-/* --------------------------- Async Patterns -------------------------- */
-/* --------------------------------------------------------------------- */
+
 
 // Parallel async operations
 
@@ -182,3 +179,41 @@ runMyPromise(6000);
 myPromise(10000)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
+
+// Promise.any()
+/* NOTE Promise.any() differs from Promise.race() in that it will only reject if all promises are rejected.
+ ** While Promise.race will reject as soon as the first promise is rejected. */
+
+const fetchCalls2 = [
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+];
+
+// Promise.any(fetchCalls2) will be rejected because all fetch calls are rejected
+Promise.any(fetchCalls2)
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error));
+
+//Promise.any() will be resolved because at least one fetch call is resolved
+const fetchCalls3 = [
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch("nope.nope"),
+  fetch(`${BASE_URL}/1`),
+];
+
+Promise.any(fetchCalls3)
+  .then((response) => {
+    console.log(response);
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
