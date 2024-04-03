@@ -123,8 +123,8 @@ window.addEventListener("scroll", (event) => {
 
 function smoothScrollToTop() {
   const duration = 1000; // Duration in milliseconds
-  const start = window.pageYOffset;
-  const end = 0;
+  const start = window.scrollY || window.pageYOf;
+  const end = 0; // where to scroll back
   const change = end - start;
   let startTime = null;
 
@@ -134,11 +134,12 @@ function smoothScrollToTop() {
 
     const progress = Math.min(timeElapsed / duration, 1);
 
-    window.scrollTo(0, start + change * progress);
-    console.log(timeElapsed);
+    window.scrollTo(end, start + change * progress);
+    // console.log(timeElapsed); // logs the time elapsed since the start of the animation
     if (timeElapsed < duration) {
       requestAnimationFrame(animateScroll);
     }
+    backToTopBtn.classList.add("hidden");
   }
 
   requestAnimationFrame(animateScroll);
