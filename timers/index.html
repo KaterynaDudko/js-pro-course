@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Timers</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Timers: Debouncing, Throttling, RequestAnimationFrame</h1>
+    </header>
+    <aside>
+      <div class="menu">
+        <button
+          class="button button_size_m menu__button menu__button_option_show-notifications"
+        >
+          Show notifications
+        </button>
+        <button
+          class="button button_size_m menu__button menu__button_option_show-countdown"
+        >
+          Show countdown
+        </button>
+        <button
+          class="button button_size_m menu__button menu__button_option_show-debounce"
+        >
+          Show Debounce
+        </button>
+        <button
+          class="button button_size_m menu__button menu__button_option_show-animation"
+        >
+          Show AnimationFrame
+        </button>
+      </div>
+    </aside>
+    <main>
+      <section class="content">
+        <div class="box w70 countdown hidden">
+          <h3>Summer in</h3>
+          <p class="countdown__message">
+            <!-- <span id="countdown__days">5 days</span>
+          <span id="countdown__hours">21 hours</span>
+          <span id="countdown__minutes">45 minutes</span>
+          <span id="countdown__seconds">10 seconds</span> -->
+          </p>
+        </div>
+        <div class="box w70 img-collection hidden">
+          <div class="img-collection__title">
+            <h3>Find pictures of your favourite dog's breed</h3>
+            <input
+              type="search"
+              name="search-dogs"
+              id="search-dogs"
+              class="search-field"
+              placeholder="Enter breed"
+            />
+          </div>
+          <div class="img-collection__images">
+            <!-- <div class="card card_size_m">
+              <img
+                class="card__image"
+                src="https://images.dog.ceo/breeds/hound-ibizan/n02091244_486.jpg"
+                alt="Australian Terrier"
+              />
+            </div>
+            <div class="card card_size_m">
+              <img
+                class="card__image"
+                src="https://images.dog.ceo/breeds/puggle/IMG_162320.jpg"
+                alt="Australian Terrier"
+              />
+            </div>
+            <div class="card card_size_m">
+              <img
+                class="card__image"
+                src="https://images.dog.ceo/breeds/terrier-irish/n02093991_863.jpg"
+                alt="Australian Terrier"
+              />
+            </div> -->
+          </div>
+        </div>
+        <div class="box w70 animated-boxes hidden">
+          <div id="boxInterval" class="shape">Interval</div>
+          <div id="boxAnimationFrame" class="shape">AnimationFrame</div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Kateryna Dudko</p>
+    </footer>
+    <button class="button button_size_xs button_to-top hidden">To top</button>
+    <div class="notifications hidden">
+      <!-- <div class="notification">Notification 1</div>
+      <div class="notification">Notification 2</div>
+      <div class="notification">Notification 3</div>
+      <div class="notification">Notification 4</div>
+      <div class="notification">Notification 5</div> -->
+    </div>
+    <script src="./timeouts.js"></script>
+    <script src="./intervals.js"></script>
+    <script src="./debouncing.js"></script>
+    <script src="./animations.js"></script>
+  </body>
+</html>
