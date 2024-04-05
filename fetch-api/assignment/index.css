@@ -1,0 +1,124 @@
+:root {
+    --background-color: #FCF7FF;
+    --accent-color: #9A42FF;
+    --main-color: #F8ECFC;
+    --text-color: #4B4453;
+    --header-height: 300px;
+    --footer-height: 50px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        "header header header header "
+        "main main main  main"
+        "footer footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    color: var(--text-color);
+    height: var(--header-height);
+    background-image: linear-gradient(315deg,
+            hsl(268deg 100% 63%) 0%,
+            hsl(275deg 93% 69%) 15%,
+            hsl(287deg 82% 75%) 26%,
+            hsl(310deg 85% 83%) 34%,
+            hsl(315deg 100% 88%) 39%,
+            hsl(311deg 100% 90%) 43%,
+            hsl(304deg 100% 92%) 47%,
+            hsl(307deg 88% 87%) 50%,
+            hsl(311deg 77% 75%) 53%,
+            hsl(311deg 72% 61%) 58%,
+            hsl(311deg 70% 53%) 64%,
+            hsl(313deg 71% 70%) 72%,
+            hsl(311deg 71% 83%) 84%,
+            hsl(285deg 73% 96%) 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    width: 30vw;
+}
+
+#post-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+#new-post-title,
+#new-post-body {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#new-post-body {
+    height: 80px;
+    resize: vertical;
+}
+
+.button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 150px;
+}
+
+.content {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: calc(100vh - (var(--footer-height) + var(--header-height)));
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-top: 1rem;
+}
+
+.post {
+    background-color: var(--main-color);
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--accent-color);
+    color: var(--main-color);
+    text-align: center;
+    height: var(--footer-height);
+}
